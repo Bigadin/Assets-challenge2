@@ -9,6 +9,7 @@ public class Solder : MonoBehaviour
     public float health;
     public float distanceAttack;
     public float dmg;
+    public float TimebtwAttack;
     [HideInInspector] public NavMeshAgent agent;
     public Transform theTarget;
     public bool CanAttack;
@@ -24,7 +25,7 @@ public class Solder : MonoBehaviour
     {
         if (CanAttack && theTarget!= null)
         {
-            transform.LookAt(new Vector3(theTarget.position.x,transform.position.y,theTarget.position.z));
+            transform.LookAt(new Vector3(theTarget.position.x,theTarget.position.y,theTarget.position.z));
             float dist = Vector3.Distance(transform.position, theTarget.position);
             if(dist <= distanceAttack)
             {
@@ -32,7 +33,7 @@ public class Solder : MonoBehaviour
                 if(timerAttack < 0f)
                 {
                     Attack();
-                    timerAttack = .75f;
+                    timerAttack = TimebtwAttack;
                 }
             }
 

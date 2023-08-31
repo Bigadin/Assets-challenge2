@@ -49,7 +49,8 @@ public class Solder : MonoBehaviour
     {
         if (health - dmg <= 0)
         {
-            agent.isStopped = true;
+            if(agent != null) 
+                agent.isStopped = true;
             Destroy(gameObject,0.1f);
         }
         else

@@ -29,7 +29,11 @@ public class Solder : MonoBehaviour
             if(dist <= distanceAttack)
             {
                 timerAttack -= Time.deltaTime;
-
+                if(timerAttack < 0f)
+                {
+                    Attack();
+                    timerAttack = .75f;
+                }
             }
 
             if(theTarget == null)
@@ -45,7 +49,7 @@ public class Solder : MonoBehaviour
         if (health - dmg <= 0)
         {
             agent.isStopped = true;
-            Destroy(gameObject);
+            Destroy(gameObject,0.1f);
         }
         else
         {

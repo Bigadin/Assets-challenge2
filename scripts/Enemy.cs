@@ -11,6 +11,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] Transform Base;
     [SerializeField] Transform TheTarget;
 
+
+    // Timer
+    float timerAttack = 3f;
     private void Start()
     {
         EnAgent = GetComponent<NavMeshAgent>();
@@ -18,8 +21,11 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
+        if(TheTarget != null) 
         EnAgent.SetDestination(TheTarget.position);
-
+        else
+            EnAgent.SetDestination(Base.position);
+        
     }
     public void TakeDmg(float dmg)
     {
@@ -34,21 +40,29 @@ public class Enemy : MonoBehaviour
             health -= dmg;
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.GetComponent<Solder>())
         {
             float dist = Vector3.Distance(transform.position, other.transform.position);
             if (dist <= 3f)
             {
+
+
                 TheTarget = other.transform;
+                if (dist <= 2f)
+                {
 
-            }
-            if (dist <= 1.2f)
-            {
-                other.GetComponent<Solder>().TakeDmg(1);
+                    timerAttack -= Time.deltaTime;
+                    if(timerAttack <= 0)
+                    {
+                        other.GetComponent<Solder>().TakeDmg(0.25f);
+                        timerAttack = 3f;
+                    }
 
+                }
             }
+
         }
     }
 }

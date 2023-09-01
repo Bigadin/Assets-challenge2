@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6655708980780683301
 MonoBehaviour:
@@ -46,10 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infantryAmount: 20
   ArcherAmount: 10
+  trapAmount: 5
   amountChecker: 0
   solders:
-  - {fileID: 2485759943279717158, guid: 56e171515dba00448905ea1a9fedbdd2, type: 3}
-  - {fileID: 7659373216315314972, guid: 719d605239255ed48a333ac7f9551f57, type: 3}
+  - {fileID: 525659590304159606, guid: 56e171515dba00448905ea1a9fedbdd2, type: 3}
+  - {fileID: 2756709716526130399, guid: 719d605239255ed48a333ac7f9551f57, type: 3}
+  - {fileID: 8202555363387587340, guid: 9222867094334c94c822d01ab7e2b686, type: 3}
   parent: {fileID: 0}
   EnemySpawner: {fileID: 0}
   solderSpawned: []
@@ -57,3 +59,4 @@ MonoBehaviour:
   SoldersAmountUI: {fileID: 0}
   infantryAdd: {fileID: 0}
   mageAdd: {fileID: 0}
+  trapAmountui: {fileID: 0}

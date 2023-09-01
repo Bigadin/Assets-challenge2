@@ -7,9 +7,9 @@ using TMPro;
 
 public class SpawningSolders : MonoBehaviour
 {
-    [SerializeField] int infantryAmount = 20, ArcherAmount = 10, amountChecker;
-    Solder solderToSpawn;
-    [SerializeField] List<Solder> solders;
+    [SerializeField] int infantryAmount = 20, ArcherAmount = 10,trapAmount = 5, amountChecker;
+    GameObject solderToSpawn;
+    [SerializeField] List<GameObject> solders;
     [SerializeField] Transform parent;
     [SerializeField] Transform EnemySpawner;
     public List<Solder> solderSpawned;
@@ -23,6 +23,7 @@ public class SpawningSolders : MonoBehaviour
     [SerializeField]TextMeshProUGUI SoldersAmountUI;
     [SerializeField]TextMeshProUGUI infantryAdd;
     [SerializeField]TextMeshProUGUI mageAdd;
+    [SerializeField]TextMeshProUGUI trapAmountui;
     private void Start()
     {
         CurrentTimerForRespawn = TimerForRespawn;
@@ -32,6 +33,7 @@ public class SpawningSolders : MonoBehaviour
         SoldersAmountUI.text = "Solders : " + solderSpawned.Count;
         mageAdd.text = " + " + ArcherAmount;
         infantryAdd.text = " + " + infantryAmount;
+        trapAmountui.text = " + " + trapAmount;
 
         if(startTimer)
         {
@@ -56,8 +58,8 @@ public class SpawningSolders : MonoBehaviour
             {
                 amountChecker--;
                 RefreshCounters();
-                Solder gb = Instantiate(solderToSpawn,GetMousePositionInWorld(),solderToSpawn.transform.rotation,parent);
-                solderSpawned.Add(gb);
+                GameObject gb = Instantiate(solderToSpawn,GetMousePositionInWorld(),solderToSpawn.transform.rotation,parent).gameObject;
+                solderSpawned.Add(gb.GetComponent<Solder>());
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -71,6 +73,11 @@ public class SpawningSolders : MonoBehaviour
             amountChecker = ArcherAmount;
             solderToSpawn = solders[1];
         }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            amountChecker = trapAmount;
+            solderToSpawn = solders[2];
+        }
     }
     void RefreshCounters()
     {
@@ -78,9 +85,13 @@ public class SpawningSolders : MonoBehaviour
         {
             infantryAmount = amountChecker;
         }
-        else
+        else if(solderToSpawn == solders[1])
         {
             ArcherAmount = amountChecker;
+        }
+        else
+        {
+            trapAmount = amountChecker;
         }
     }
  

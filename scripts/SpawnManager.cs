@@ -25,8 +25,8 @@ public class SpawnManager : MonoBehaviour
             Vector3 RighPos = new Vector3(Random.Range(50, 65), 0, Random.Range(0, 65));
             Vector3 LeftPos = new Vector3(Random.Range(-50, -65), 0, Random.Range(0, 65));
             Vector3 BehPos = new Vector3(Random.Range(0, 65), 0, Random.Range(-50, -65));
-            Vector3 towPos = new Vector3(Random.Range(0, 65), 0, Random.Range(-50, -65));
-            int pos = Random.Range(1, 4);
+            Vector3 towPos = new Vector3(Random.Range(0, 65), 0, Random.Range(50, 65));
+            int pos = Random.Range(1, 5);
             if (pos == 1)
             {
                 Instantiate(_EnemyPrefab[RandomEnemy()], RighPos, Quaternion.identity);

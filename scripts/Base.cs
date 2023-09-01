@@ -37,6 +37,6 @@ public class Base : MonoBehaviour
     IEnumerator ReloadScene()
     {
         yield return new WaitForSeconds(7f);
-       // SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Main_Menu");
     }
 }

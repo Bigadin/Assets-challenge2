@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8771590574369216963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 868671755172314393}
+  - component: {fileID: 6655708980780683301}
+  m_Layer: 0
+  m_Name: SpawneManger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &868671755172314393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8771590574369216963}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.17652, y: 3.1874802, z: 5.212538}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6655708980780683301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8771590574369216963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5672d3e67fe79fa4c9e5feda691c09d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  infantryAmount: 20
+  ArcherAmount: 10
+  amountChecker: 0
+  solders:
+  - {fileID: 2485759943279717158, guid: 56e171515dba00448905ea1a9fedbdd2, type: 3}
+  - {fileID: 7659373216315314972, guid: 719d605239255ed48a333ac7f9551f57, type: 3}
+  parent: {fileID: 0}
+  EnemySpawner: {fileID: 0}
+  solderSpawned: []
+  TimerForRespawn: 10
+  SoldersAmountUI: {fileID: 0}
+  infantryAdd: {fileID: 0}
+  mageAdd: {fileID: 0}

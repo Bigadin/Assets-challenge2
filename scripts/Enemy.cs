@@ -64,5 +64,14 @@ public class Enemy : MonoBehaviour
             }
 
         }
+        if (other.GetComponent<Base>())
+        {
+            timerAttack -= Time.deltaTime;
+            if (timerAttack <= 0)
+            {
+                other.GetComponent<Base>().TakeDmg(1f);
+                timerAttack = 3f;
+            }
+        }
     }
 }

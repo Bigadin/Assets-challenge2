@@ -13,12 +13,13 @@ public class Solder : MonoBehaviour
     [HideInInspector] public NavMeshAgent agent;
     public Transform theTarget;
     public bool CanAttack;
-
+    SpawningSolders ss;
     // Timer
 
     float timerAttack = 1f;
     private void Start()
     {
+        ss = GameObject.FindObjectOfType<SpawningSolders>();
         agent = GetComponent<NavMeshAgent>();
     }
     private void Update()
@@ -51,6 +52,7 @@ public class Solder : MonoBehaviour
         {
             if(agent != null) 
                 agent.isStopped = true;
+            ss.solderSpawned.Remove(gameObject.GetComponent<Solder>());
             Destroy(gameObject,0.1f);
         }
         else

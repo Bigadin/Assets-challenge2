@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
         if(TheTarget != null) 
         EnAgent.SetDestination(TheTarget.position);
         else
-            EnAgent.SetDestination(Base.position);
+            EnAgent.SetDestination(Base.position + Base.localScale);
         
     }
     public void TakeDmg(float dmg)
@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
                     timerAttack -= Time.deltaTime;
                     if(timerAttack <= 0)
                     {
-                        other.GetComponent<Solder>().TakeDmg(0.25f);
+                        other.GetComponent<Solder>().TakeDmg(0.75f);
                         timerAttack = 3f;
                     }
 

@@ -13,8 +13,9 @@ public class archers : Solder
         Rigidbody bulRb =  bul.AddComponent<Rigidbody>();
         bulRb.useGravity = false;
         bul.name = "bullet";
+        bulRb.constraints = RigidbodyConstraints.FreezeRotation;
         bulRb.AddForce(transform.forward * 20f, ForceMode.Impulse);
-        Destroy(bul, 4.5f);
+        Destroy(bul, 3.2f);
     }
     private void OnTriggerStay(Collider other)
     {
